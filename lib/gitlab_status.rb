@@ -1,5 +1,2 @@
-require "gitlab_status/version"
-
-module GitlabStatus
-  # Your code goes here...
-end
+require 'gitlab_status/version'
+require 'gitlab_status/health_check'
