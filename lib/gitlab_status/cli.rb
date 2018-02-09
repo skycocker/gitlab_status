@@ -6,8 +6,8 @@ require 'gitlab_status/health_check'
 
 module GitlabStatus
   class CLI < Thor
-    desc 'perform', 'Performs a health check of https://about.gitlab.com for a minute with 10-second probes'
-    def perform
+    desc 'check', 'Performs a health check of https://about.gitlab.com for a minute with 10-second probes'
+    def check
       task   = GitlabStatus::IntervalTask.new(interval: 10, total_task_time: 60)
       logger = GitlabStatus::Logger.new
 
