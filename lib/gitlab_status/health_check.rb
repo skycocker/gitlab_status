@@ -1,6 +1,7 @@
 require 'typhoeus'
 require 'pry'
 require 'active_support/all'
+require 'gitlab_status/health_check/probe'
 
 module GitlabStatus
   class HealthCheck
@@ -17,6 +18,10 @@ module GitlabStatus
 
     def response_time
       response.total_time
+    end
+
+    def probe
+      @probe ||= Probe.new(succeeded?, response_time)
     end
 
     private
